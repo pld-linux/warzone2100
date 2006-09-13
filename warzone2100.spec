@@ -1,12 +1,13 @@
+%define	_rc	rc1
 Summary:	3D realtime strategy on a future Earth
 Summary(pl):	Gra RTS, której akcja toczy siê w przysz³o¶ci
 Name:		warzone2100
-Version:	2.0.4
-Release:	0.1
+Version:	2.0.5
+Release:	0.%{_rc}.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	84e92061d9a00405994ab7496d03a610
+Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{_rc}.tar.bz2
+# Source0-md5:	ffa5e7b1b51ffa7129029a911986536f
 URL:		http://wz.rootzilla.de/site/
 BuildRequires:	OpenAL-devel
 BuildRequires:	SDL-devel >= 1.1.4
@@ -31,7 +32,7 @@ technologie radarowe oraz wiêksze skupienie siê na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
-%setup -q
+%setup -q -n warzone-%{version}_%{_rc}
 
 %build
 %{__aclocal}
