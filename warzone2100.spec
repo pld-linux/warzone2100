@@ -14,6 +14,7 @@ BuildRequires:	SDL-devel >= 1.1.4
 BuildRequires:	SDL_net-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	physfs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
