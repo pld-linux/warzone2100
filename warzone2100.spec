@@ -12,11 +12,14 @@ URL:		http://wz.rootzilla.de/site/
 BuildRequires:	OpenAL-devel
 BuildRequires:	SDL-devel >= 1.1.4
 BuildRequires:	SDL_net-devel
+BuildRequires:	X11-OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	libvorbis-devel
 BuildRequires:	physfs-devel
+BuildRequires:	zip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
