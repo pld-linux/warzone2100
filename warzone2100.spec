@@ -10,9 +10,9 @@ Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{_rc}.
 # Source0-md5:	ffa5e7b1b51ffa7129029a911986536f
 URL:		http://wz.rootzilla.de/site/
 BuildRequires:	OpenAL-devel
+BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.1.4
 BuildRequires:	SDL_net-devel
-BuildRequires:	X11-OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
