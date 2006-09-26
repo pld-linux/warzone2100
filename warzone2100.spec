@@ -8,7 +8,7 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{_rc}.tar.bz2
 # Source0-md5:	ffa5e7b1b51ffa7129029a911986536f
-URL:		http://wz.rootzilla.de/site/
+URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.1.4
