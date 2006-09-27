@@ -3,7 +3,7 @@ Summary:	3D realtime strategy on a future Earth
 Summary(pl):	Gra RTS, której akcja toczy siê w przysz³o¶ci
 Name:		warzone2100
 Version:	2.0.5
-Release:	0.%{_rc}.1
+Release:	0.%{_rc}.2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{_rc}.tar.bz2
@@ -48,9 +48,13 @@ artyleryjskich oraz obronie przeciwlotniczej.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
+install debian/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
+install debian/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
+install debian/%{name}.svg $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,3 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.*
