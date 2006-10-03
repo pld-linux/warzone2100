@@ -20,6 +20,8 @@ BuildRequires:	flex
 BuildRequires:	libvorbis-devel
 BuildRequires:	physfs-devel
 BuildRequires:	zip
+BuildRequires:	libjpeg-devel
+#BuildRequires:	libmad-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
