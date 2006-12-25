@@ -1,13 +1,12 @@
-%define	_rc	rc1
 Summary:	3D realtime strategy on a future Earth
 Summary(pl):	Gra RTS, której akcja toczy siê w przysz³o¶ci
 Name:		warzone2100
 Version:	2.0.5
-Release:	0.%{_rc}.2
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{_rc}.tar.bz2
-# Source0-md5:	ffa5e7b1b51ffa7129029a911986536f
+Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	56e83a64d5b7aa60ced3d7ac7281bb42
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-devel
@@ -17,11 +16,11 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	libjpeg-devel
+#BuildRequires:	libmad-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	physfs-devel
 BuildRequires:	zip
-BuildRequires:	libjpeg-devel
-#BuildRequires:	libmad-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,9 +37,10 @@ technologie radarowe oraz wiêksze skupienie siê na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
-%setup -q -n warzone-%{version}_%{_rc}
+%setup -q
 
 %build
+cat m4/*m4 > acinclude.m4
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -68,3 +68,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
+%{_iconsdir}/warzone2100.png
