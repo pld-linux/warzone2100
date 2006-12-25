@@ -40,8 +40,7 @@ artyleryjskich oraz obronie przeciwlotniczej.
 %setup -q
 
 %build
-cat m4/*m4 > acinclude.m4
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -68,4 +67,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
-%{_iconsdir}/warzone2100.png
