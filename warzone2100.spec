@@ -1,5 +1,5 @@
 Summary:	3D realtime strategy on a future Earth
-Summary(pl):	Gra RTS, której akcja toczy siê w przysz³o¶ci
+Summary(pl.UTF-8):   Gra RTS, ktÃ³rej akcja toczy siÄ™ w przyszÅ‚oÅ›ci
 Name:		warzone2100
 Version:	2.0.5
 Release:	0.1
@@ -29,11 +29,11 @@ Earth 2150 in many significant respects, it does contain aspects that
 are unique. These include various radar technologies and a greater
 focus on artillery and counter-battery technologies.
 
-%description -l pl
-Warzone 2100 jest gr± strategiczn± czasu rzeczywistego. Chocia¿ gra
-bardzo przypomina grê Earth 2150, to jednak zosta³o do niej
-wprowadzonych kilka ciekawych pomys³ów. S± to miêdzy innymi rozmaite
-technologie radarowe oraz wiêksze skupienie siê na technologiach
+%description -l pl.UTF-8
+Warzone 2100 jest grÄ… strategicznÄ… czasu rzeczywistego. ChociaÅ¼ gra
+bardzo przypomina grÄ™ Earth 2150, to jednak zostaÅ‚o do niej
+wprowadzonych kilka ciekawych pomysÅ‚Ã³w. SÄ… to miÄ™dzy innymi rozmaite
+technologie radarowe oraz wiÄ™ksze skupienie siÄ™ na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
