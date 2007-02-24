@@ -44,6 +44,9 @@ artyleryjskich oraz obronie przeciwlotniczej.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+#./autogen.sh
+perl -pi -e "s#-m32##g" ./makerules/common.mk
+perl -pi -e "s#-m32##g" configure
 %configure
 %{__make}
 
