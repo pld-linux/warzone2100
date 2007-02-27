@@ -1,9 +1,11 @@
+?1;2c# $Revision: 1.14 $, $Date: 2007-02-27 21:08:41 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
 Version:	2.0.5
 Release:	0.1
 License:	GPL
+BuildRequires:	Mesa-libGLU-devel
 Group:		X11/Applications/Games
 Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	56e83a64d5b7aa60ced3d7ac7281bb42
