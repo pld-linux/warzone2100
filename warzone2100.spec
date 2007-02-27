@@ -1,4 +1,4 @@
-?1;2c# $Revision: 1.14 $, $Date: 2007-02-27 21:08:41 $
+#$Revision: 1.15 $, $Date: 2007-02-27 21:30:47 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
