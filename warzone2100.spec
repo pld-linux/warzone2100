@@ -1,13 +1,13 @@
-#$Revision: 1.17 $, $Date: 2007-04-08 13:13:12 $
+#$Revision: 1.18 $, $Date: 2007-06-22 21:36:10 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.0.6
+Version:	2.0.7
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	f831dcbc1961c6d3fe8a354439f063a2
+# Source0-md5:	86b7db39cd1d80b09bfafbaeba24aa0f
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -57,9 +57,9 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
-install debian/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
-install debian/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install debian/%{name}.svg $RPM_BUILD_ROOT%{_pixmapsdir}
+install icons/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
+install icons/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
+install icons/%{name}.svg $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
