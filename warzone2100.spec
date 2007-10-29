@@ -1,13 +1,15 @@
-#$Revision: 1.18 $, $Date: 2007-06-22 21:36:10 $
+#$Revision: 1.18.2.1 $, $Date: 2007-10-29 00:59:34 $
+%define	_rc	rc1
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.0.7
-Release:	0.1
-License:	GPL
+Version:	2.0.8
+Release:	0.%{_rc}.1
+License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	86b7db39cd1d80b09bfafbaeba24aa0f
+Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{_rc}.tar.bz2
+# Source0-md5:	5633f8b4a859d2acde7894ea88dc829c
+Patch0:		%{name}-desktop.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -38,7 +40,8 @@ technologie radarowe oraz większe skupienie się na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}_%{_rc}
+%patch0 -p1
 
 %build
 %{__aclocal} -I m4
@@ -57,16 +60,16 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
+
 install icons/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install icons/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install icons/%{name}.svg $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS ChangeLog README TODO doc/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
