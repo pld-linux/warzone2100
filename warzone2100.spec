@@ -1,13 +1,14 @@
-#$Revision: 1.18 $, $Date: 2007-06-22 21:36:10 $
+#$Revision: 1.19 $, $Date: 2007-12-06 23:58:20 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.0.7
-Release:	0.1
-License:	GPL
-Group:		X11/Applications/Games
+Version:	2.0.9
+Release:	1
+License:	GPL v2+
+Group:		X11/Applications/Games/Strategy
 Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	86b7db39cd1d80b09bfafbaeba24aa0f
+# Source0-md5:	fbf869a88987bdbd945979eb0a83088d
+Patch0:		%{name}-desktop.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -18,7 +19,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	libjpeg-devel
-#BuildRequires:	libmad-devel
+BuildRequires:	libmad-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	physfs-devel
 BuildRequires:	zip
@@ -39,14 +40,14 @@ artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-#./autogen.sh
-perl -pi -e "s#-m32##g" ./makerules/common.mk
+#perl -pi -e "s#-m32##g" makerules/common.mk
 perl -pi -e "s#-m32##g" configure
 %configure
 %{__make}
@@ -57,16 +58,16 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
+
 install icons/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install icons/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install icons/%{name}.svg $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS ChangeLog TODO doc/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
