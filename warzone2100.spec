@@ -1,4 +1,4 @@
-#$Revision: 1.19 $, $Date: 2007-12-06 23:58:20 $
+#$Revision: 1.20 $, $Date: 2007-12-12 00:22:15 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
@@ -21,6 +21,7 @@ BuildRequires:	flex
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libvorbis-devel
+BuildRequires:	perl-base
 BuildRequires:	physfs-devel
 BuildRequires:	zip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,8 +48,8 @@ artyleryjskich oraz obronie przeciwlotniczej.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-#perl -pi -e "s#-m32##g" makerules/common.mk
-perl -pi -e "s#-m32##g" configure
+#%{__perl} -pi -e "s#-m32##g" makerules/common.mk
+%{__perl} -pi -e "s#-m32##g" configure
 %configure
 %{__make}
 
