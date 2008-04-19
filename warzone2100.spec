@@ -1,13 +1,14 @@
-#$Revision: 1.21 $, $Date: 2007-12-30 22:21:21 $
+#$Revision: 1.21.2.1 $, $Date: 2008-04-19 23:52:24 $
+%define		_beta	beta2
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.0.10
-Release:	1
+Version:	2.1
+Release:	0.%{_beta}.1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	d27b89fde2c8017020756441bdd2a67b
+Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}_%{_beta}.tar.bz2
+# Source0-md5:	566b7b9f79d5f9b6b9b7d14b410d86e4
 Patch0:		%{name}-desktop.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel
@@ -21,9 +22,14 @@ BuildRequires:	flex
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libvorbis-devel
+BuildRequires:	libpng-devel
 BuildRequires:	perl-base
 BuildRequires:	physfs-devel
+BuildRequires:	pkgconfig
+BuildRequires:	popt-devel
+BuildRequires:	quesoglc-devel
 BuildRequires:	zip
+BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,7 +46,7 @@ technologie radarowe oraz większe skupienie się na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}_%{_beta}
 %patch0 -p1
 
 %build
@@ -68,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog TODO doc/*
+%doc AUTHORS ChangeLog doc/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
