@@ -1,5 +1,5 @@
-#$Revision: 1.21.2.2 $, $Date: 2008-11-27 10:33:58 $
-%define		_rc	rc1
+#$Revision: 1.21.2.3 $, $Date: 2008-12-03 09:43:09 $
+%define		_rc	rc2
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
@@ -8,7 +8,7 @@ Release:	0.%{_rc}.1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}_%{_rc}.tar.bz2
-# Source0-md5:	154208e2a1df4549b74c8016b38b50f0
+# Source0-md5:	bce57301df1b134898890e55a806948e
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-configure.patch
 URL:		http://www.wz2100.net/
