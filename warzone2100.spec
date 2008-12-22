@@ -1,4 +1,4 @@
-#$Revision: 1.22 $, $Date: 2008-12-22 10:56:42 $
+#$Revision: 1.23 $, $Date: 2008-12-22 10:59:38 $
 %define		_rc	rc2
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
@@ -24,7 +24,6 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libpng-devel >= 1.2
 BuildRequires:	libvorbis-devel >= 1.1
-BuildRequires:	perl-base
 BuildRequires:	physfs-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
