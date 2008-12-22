@@ -1,4 +1,4 @@
-#$Revision: 1.23 $, $Date: 2008-12-22 10:59:38 $
+#$Revision: 1.24 $, $Date: 2008-12-22 11:01:01 $
 %define		_rc	rc2
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
@@ -46,7 +46,7 @@ technologie radarowe oraz większe skupienie się na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
