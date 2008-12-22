@@ -1,18 +1,20 @@
-#$Revision: 1.21 $, $Date: 2007-12-30 22:21:21 $
+#$Revision: 1.22 $, $Date: 2008-12-22 10:56:42 $
+%define		_rc	rc2
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.0.10
+Version:	2.1.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	d27b89fde2c8017020756441bdd2a67b
+Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
+# Source0-md5:	5590795a6c1d961eb4dc99ce54a4c882
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-configure.patch
 URL:		http://www.wz2100.net/
-BuildRequires:	OpenAL-devel
+BuildRequires:	OpenAL-devel >= 0.0.8
 BuildRequires:	OpenGL-GLU-devel
-BuildRequires:	SDL-devel >= 1.1.4
+BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	SDL_net-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,9 +22,14 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
-BuildRequires:	libvorbis-devel
+BuildRequires:	libpng-devel >= 1.2
+BuildRequires:	libvorbis-devel >= 1.1
 BuildRequires:	perl-base
 BuildRequires:	physfs-devel
+BuildRequires:	pkgconfig
+BuildRequires:	popt-devel
+BuildRequires:	quesoglc-devel
+BuildRequires:	unzip
 BuildRequires:	zip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,18 +47,18 @@ technologie radarowe oraz większe skupienie się na technologiach
 artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-#%{__perl} -pi -e "s#-m32##g" makerules/common.mk
-%{__perl} -pi -e "s#-m32##g" configure
 %configure --with-distributor="PLD"
-%{__make}
+%{__make} \
+	OPENAL_LIBS="`openal-config --libs`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -63,12 +70,14 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 install icons/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install icons/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
+%find_lang %{name} --all-name
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog TODO doc/*
+%doc AUTHORS ChangeLog doc/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
