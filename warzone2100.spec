@@ -1,5 +1,4 @@
-#$Revision: 1.24 $, $Date: 2008-12-22 11:01:01 $
-%define		_rc	rc2
+#$Revision: 1.25 $, $Date: 2008-12-25 09:43:17 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
