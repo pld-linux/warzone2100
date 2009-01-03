@@ -1,4 +1,3 @@
-#$Revision: 1.25 $, $Date: 2008-12-25 09:43:17 $
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
@@ -54,29 +53,33 @@ artyleryjskich oraz obronie przeciwlotniczej.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure --with-distributor="PLD"
+%configure \
+	--with-distributor="PLD" \
+	--docdir=%{_docdir}/%{name}-%{version} \
+	--with-icondir=%{_pixmapsdir}
 %{__make} \
 	OPENAL_LIBS="`openal-config --libs`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
-install icons/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
-install icons/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
+# there is already sv locale
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/sv_SE
+# unsupported ?
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/la
 
-%find_lang %{name} --all-name
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog doc/*
+%doc %{_docdir}/%{name}-%{version}
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}.*
+%{_pixmapsdir}/%{name}.png
