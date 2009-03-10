@@ -1,12 +1,12 @@
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.1.1
+Version:	2.1.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	6294cd8eb6fe1ad5c64e2982d6728c28
+# Source0-md5:	4b4ea830e3d7449b679a4952b335675e
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-configure.patch
 URL:		http://www.wz2100.net/
@@ -28,6 +28,8 @@ BuildRequires:	popt-devel
 BuildRequires:	quesoglc-devel
 BuildRequires:	unzip
 BuildRequires:	zip
+Requires:	fonts-TTF-DejaVu
+Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,9 +41,9 @@ focus on artillery and counter-battery technologies.
 %description -l pl.UTF-8
 Warzone 2100 jest grą strategiczną czasu rzeczywistego. Chociaż gra
 bardzo przypomina grę Earth 2150, to jednak zostało do niej
-wprowadzonych kilka ciekawych pomysłów. Są to między innymi rozmaite
-technologie radarowe oraz większe skupienie się na technologiach
-artyleryjskich oraz obronie przeciwlotniczej.
+wprowadzonych kilka ciekawych pomysłów. Są to między innymi
+rozmaite technologie radarowe oraz większe skupienie się na
+technologiach artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
 %setup -q
