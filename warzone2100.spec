@@ -8,9 +8,8 @@ Group:		X11/Applications/Games/Strategy
 Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	4b4ea830e3d7449b679a4952b335675e
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-configure.patch
 URL:		http://www.wz2100.net/
-BuildRequires:	OpenAL-devel >= 0.0.8
+BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	SDL_net-devel
@@ -48,7 +47,6 @@ technologiach artyleryjskich oraz obronie przeciwlotniczej.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal} -I m4
@@ -59,8 +57,7 @@ technologiach artyleryjskich oraz obronie przeciwlotniczej.
 	--with-distributor="PLD" \
 	--docdir=%{_docdir}/%{name}-%{version} \
 	--with-icondir=%{_pixmapsdir}
-%{__make} \
-	OPENAL_LIBS="`openal-config --libs`"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
