@@ -1,12 +1,12 @@
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.1.3
+Version:	2.2.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
-Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	44e3fb60918706f82da548f359aad673
+Source0:	http://dl.sourceforge.net/warzone2100/%{name}-%{version}.tar.bz2
+# Source0-md5:	d0040c5c4d6c919903d637b66aa2ad0a
 Patch0:		%{name}-desktop.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
@@ -20,6 +20,7 @@ BuildRequires:	flex
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libpng-devel >= 1.2
+BuildRequires:	libtheora-devel >= 0.1
 BuildRequires:	libvorbis-devel >= 1.1
 BuildRequires:	physfs-devel
 BuildRequires:	pkgconfig
