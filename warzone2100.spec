@@ -1,12 +1,12 @@
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.2.1
-Release:	3
+Version:	2.2.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
-Source0:	http://dl.sourceforge.net/warzone2100/%{name}-%{version}.tar.bz2
-# Source0-md5:	d0040c5c4d6c919903d637b66aa2ad0a
+Source0:	http://dl.sourceforge.net/warzone2100/%{name}-%{version}.tar.gz
+# Source0-md5:	e4127c116514991fe4579a74a64e403c
 Patch0:		%{name}-desktop.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
