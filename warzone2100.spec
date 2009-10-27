@@ -2,7 +2,7 @@ Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
 Version:	2.2.4
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	http://dl.sourceforge.net/warzone2100/%{name}-%{version}.tar.gz
@@ -49,6 +49,11 @@ technologiach artyleryjskich oraz obronie przeciwlotniczej.
 %prep
 %setup -q
 %patch0 -p1
+
+# et_EE -> et
+%{__sed} -e 's/et_EE/et/g' -i po/LINGUAS
+mv po/et{_EE,}.po
+mv po/et{_EE,}.gmo
 
 %build
 %{__aclocal} -I m4
