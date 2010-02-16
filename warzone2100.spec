@@ -72,8 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
-# there is already sv locale
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/sv_SE
 # unsupported ?
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/la
 
