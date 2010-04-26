@@ -1,12 +1,12 @@
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	2.2.4
-Release:	3
+Version:	2.3.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
-Source0:	http://dl.sourceforge.net/warzone2100/%{name}-%{version}.tar.gz
-# Source0-md5:	494f29f172f8b5ad0e5629edae3caa62
+Source0:	http://downloads.sourceforge.net/warzone2100/%{name}-%{version}.tar.gz
+# Source0-md5:	70fa70d326303e88fa3c9d07756ef1b1
 Patch0:		%{name}-desktop.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
@@ -27,6 +27,7 @@ BuildRequires:	physfs-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	quesoglc-devel
+BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRequires:	zip
 Requires:	fonts-TTF-DejaVu
@@ -42,9 +43,9 @@ focus on artillery and counter-battery technologies.
 %description -l pl.UTF-8
 Warzone 2100 jest grą strategiczną czasu rzeczywistego. Chociaż gra
 bardzo przypomina grę Earth 2150, to jednak zostało do niej
-wprowadzonych kilka ciekawych pomysłów. Są to między innymi
-rozmaite technologie radarowe oraz większe skupienie się na
-technologiach artyleryjskich oraz obronie przeciwlotniczej.
+wprowadzonych kilka ciekawych pomysłów. Są to między innymi rozmaite
+technologie radarowe oraz większe skupienie się na technologiach
+artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
 %setup -q
@@ -71,6 +72,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
+
+# unsupported
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/uk_UA
 
 %find_lang %{name}
 
