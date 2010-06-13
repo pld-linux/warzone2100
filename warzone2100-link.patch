@@ -1,0 +1,21 @@
+--- warzone2100-2.3.1/configure.ac~	2010-06-13 01:11:33.000000000 +0200
++++ warzone2100-2.3.1/configure.ac	2010-06-13 19:30:03.925768612 +0200
+@@ -374,6 +374,7 @@
+ 		], AS_IF([test "$enable_motif" = "yes"],
+ 			[AC_MSG_ERROR([Motif library not found])]))
+ ])
++AC_SUBST([XTOOLKIT_LIBS], [-lXt])
+ AM_CONDITIONAL([MOTIF_AVAILABLE], test -n "$MOTIF_LIBS")
+ 
+ # Look for Popt
+--- warzone2100-2.3.1/src/Makefile.am~	2010-06-13 01:11:34.000000000 +0200
++++ warzone2100-2.3.1/src/Makefile.am	2010-06-13 19:38:39.249051449 +0200
+@@ -296,7 +296,7 @@
+ 	$(top_builddir)/lib/iniparser/libiniparser.a \
+ 	$(top_builddir)/lib/exceptionhandler/libexceptionhandler.a
+ 
+-warzone2100_LDADD += $(LTLIBINTL) $(SDL_LIBS) $(PHYSFS_LIBS) $(PNG_LIBS) $(OGGVORBIS_LIBS) $(THEORA_LIBS) $(OPENAL_LIBS) $(OPENGLC_LIBS) $(OPENGL_LIBS) $(POPT_LIBS) $(MOTIF_LIBS) $(X11_LIBS) $(GLee_LIBS)
++warzone2100_LDADD += $(LTLIBINTL) $(SDL_LIBS) $(PHYSFS_LIBS) $(PNG_LIBS) $(OGGVORBIS_LIBS) $(THEORA_LIBS) $(OPENAL_LIBS) $(OPENGLC_LIBS) $(OPENGL_LIBS) $(POPT_LIBS) $(MOTIF_LIBS) $(XTOOLKIT_LIBS) $(X11_LIBS) $(GLee_LIBS)
+ 
+ if MINGW32
+ warzone2100_LDADD += $(top_builddir)/win32/warzone2100.o $(WIN32_LIBS)
