@@ -8,6 +8,7 @@ Group:		X11/Applications/Games/Strategy
 Source0:	http://downloads.sourceforge.net/warzone2100/%{name}-%{version}.tar.gz
 # Source0-md5:	188d53d1986f665933e61893a77d33f6
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-link.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
@@ -50,6 +51,7 @@ artyleryjskich oraz obronie przeciwlotniczej.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 # et_EE -> et
 %{__sed} -e 's/et_EE/et/g' -i po/LINGUAS
