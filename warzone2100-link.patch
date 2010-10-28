@@ -8,14 +8,14 @@
  AM_CONDITIONAL([MOTIF_AVAILABLE], test -n "$MOTIF_LIBS")
  
  # Look for Popt
---- warzone2100-2.3.1/src/Makefile.am~	2010-06-13 01:11:34.000000000 +0200
-+++ warzone2100-2.3.1/src/Makefile.am	2010-06-13 19:38:39.249051449 +0200
-@@ -296,7 +296,7 @@
- 	$(top_builddir)/lib/iniparser/libiniparser.a \
- 	$(top_builddir)/lib/exceptionhandler/libexceptionhandler.a
- 
--warzone2100_LDADD += $(LTLIBINTL) $(SDL_LIBS) $(PHYSFS_LIBS) $(PNG_LIBS) $(OGGVORBIS_LIBS) $(THEORA_LIBS) $(OPENAL_LIBS) $(OPENGLC_LIBS) $(OPENGL_LIBS) $(POPT_LIBS) $(MOTIF_LIBS) $(X11_LIBS) $(GLee_LIBS)
-+warzone2100_LDADD += $(LTLIBINTL) $(SDL_LIBS) $(PHYSFS_LIBS) $(PNG_LIBS) $(OGGVORBIS_LIBS) $(THEORA_LIBS) $(OPENAL_LIBS) $(OPENGLC_LIBS) $(OPENGL_LIBS) $(POPT_LIBS) $(MOTIF_LIBS) $(XTOOLKIT_LIBS) $(X11_LIBS) $(GLee_LIBS)
- 
+--- warzone2100-3.0_beta1/src/Makefile.am~      2010-10-25 02:24:44.000000000 +0200
++++ warzone2100-3.0_beta1/src/Makefile.am       2010-10-28 10:57:00.368949295 +0200
+@@ -298,7 +298,7 @@
+        $(top_builddir)/lib/iniparser/libiniparser.a \
+        $(top_builddir)/lib/exceptionhandler/libexceptionhandler.a
+
+-warzone2100_LDADD += $(LTLIBINTL) $(SDL_LIBS) $(PHYSFS_LIBS) $(PNG_LIBS) $(OGGVORBIS_LIBS) $(THEORA_LIBS) $(OPENAL_LIBS) $(OPENGLC_LIBS) $(OPENGL_LIBS) $(X11_LIBS) $(GLee_LIBS)
++warzone2100_LDADD += $(LTLIBINTL) $(SDL_LIBS) $(PHYSFS_LIBS) $(PNG_LIBS) $(OGGVORBIS_LIBS) $(THEORA_LIBS) $(OPENAL_LIBS) $(OPENGLC_LIBS) $(OPENGL_LIBS) $(XTOOLKIT_LIBS) -lXm $(X11_LIBS) $(GLee_LIBS)
+
  if MINGW32
  warzone2100_LDADD += $(top_builddir)/win32/warzone2100.o $(WIN32_LIBS)
