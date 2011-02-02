@@ -30,6 +30,7 @@ BuildRequires:	popt-devel
 BuildRequires:	quesoglc-devel
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
+BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	zip
 Requires:	fonts-TTF-DejaVu
 Requires:	gdb
