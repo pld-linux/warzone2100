@@ -7,7 +7,6 @@ License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	http://downloads.sourceforge.net/warzone2100/%{name}-%{version}.tar.xz
 # Source0-md5:	7f061f3e5a2a6a83c146508ccefabd86
-Patch1:		%{name}-link.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
