@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	http://downloads.sourceforge.net/warzone2100/%{name}-%{version}.tar.xz
 # Source0-md5:	4e947125e9604821164f1ad9d1922447
+Patch0:		glew-1.12.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
@@ -52,6 +53,7 @@ artyleryjskich oraz obronie przeciwlotniczej.
 
 %prep
 %setup -q
+%patch0 -p1
 
 # et_EE -> et
 %{__sed} -e 's/et_EE/et/g' -i po/LINGUAS
