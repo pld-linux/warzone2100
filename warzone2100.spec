@@ -2,12 +2,13 @@ Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
 Version:	3.1.2
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	http://downloads.sourceforge.net/warzone2100/%{name}-%{version}.tar.xz
 # Source0-md5:	4e947125e9604821164f1ad9d1922447
 Patch0:		glew-1.12.patch
+Patch1:		gcc8.patch
 URL:		http://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
@@ -65,6 +66,7 @@ Warzone 2100 data files
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 # et_EE -> et
 %{__sed} -e 's/et_EE/et/g' -i po/LINGUAS
