@@ -56,9 +56,7 @@ artyleryjskich oraz obronie przeciwlotniczej.
 %package data
 Summary:	Warzone 2100 data files
 Group:		X11/Applications/Games/Strategy
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description data
 Warzone 2100 data files
