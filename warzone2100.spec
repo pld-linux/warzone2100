@@ -63,8 +63,8 @@ Warzone 2100 data files
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 # et_EE -> et
 %{__sed} -e 's/et_EE/et/g' -i po/LINGUAS
