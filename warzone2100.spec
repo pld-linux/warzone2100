@@ -1,26 +1,18 @@
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
-Version:	3.1.2
-Release:	5
+Version:	4.6.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
-Source0:	http://downloads.sourceforge.net/warzone2100/%{name}-%{version}.tar.xz
-# Source0-md5:	4e947125e9604821164f1ad9d1922447
-Patch0:		glew-1.12.patch
-Patch1:		gcc8.patch
-URL:		http://www.wz2100.net/
+Source0:	https://downloads.sourceforge.net/warzone2100/releases/%{version}/%{name}_src.tar.xz
+# Source0-md5:	500e1a169f39454789bfc6bdb66b7582
+URL:		https://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtScript-devel
 BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	SDL_net-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	bison
-BuildRequires:	flex
-BuildRequires:	gettext-tools
+BuildRequires:	cmake
 BuildRequires:	glew-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
@@ -62,35 +54,28 @@ BuildArch:	noarch
 Warzone 2100 data files
 
 %prep
-%setup -q
-%patch -P0 -p1
-%patch -P1 -p1
-
-# et_EE -> et
-%{__sed} -e 's/et_EE/et/g' -i po/LINGUAS
-mv po/et{_EE,}.po
-mv po/et{_EE,}.gmo
+%setup -q -n %{name}
 
 %build
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--with-distributor="PLD" \
-	--docdir=%{_docdir}/%{name}-%{version} \
-	--with-icondir=%{_pixmapsdir}
+mkdir -p build
+cd build
+%cmake ../ \
+	-DCMAKE_INSTALL_DOCDIR=%{_docdir}/%{name}-%{version}
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
-%{__make} install \
+%{__make} -C build install \
         DESTDIR=$RPM_BUILD_ROOT
 
 # unsupported
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ca_ES
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/uk_UA
+
+%{__mv} $RPM_BUILD_ROOT{%{_iconsdir},%{_pixmapsdir}}/net.wz2100.warzone2100.png
 
 %find_lang %{name}
 
@@ -102,8 +87,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_docdir}/%{name}-%{version}
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man6/%{name}.6*
-%{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}.png
+%{_desktopdir}/net.wz2100.warzone2100.desktop
+%{_datadir}/metainfo/net.wz2100.warzone2100.metainfo.xml
+%{_pixmapsdir}/net.wz2100.warzone2100.png
 
 %files data
 %defattr(644,root,root,755)
