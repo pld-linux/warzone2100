@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	https://downloads.sourceforge.net/warzone2100/releases/%{version}/%{name}_src.tar.xz
 # Source0-md5:	500e1a169f39454789bfc6bdb66b7582
+Patch0:		x32.patch
 URL:		https://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
@@ -55,6 +56,7 @@ Warzone 2100 data files
 
 %prep
 %setup -q -n %{name}
+%patch -P0 -p1
 
 %build
 mkdir -p build
