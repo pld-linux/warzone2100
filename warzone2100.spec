@@ -1,3 +1,4 @@
+# TODO: system 3rdparty libs (fmt, re2...)
 Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
@@ -13,7 +14,7 @@ BuildRequires:	OpenAL-devel >= 0.0.8-4
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	SDL_net-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 3.16
 BuildRequires:	glew-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
@@ -24,7 +25,8 @@ BuildRequires:	physfs-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	quesoglc-devel
-BuildRequires:	sed >= 4.0
+BuildRequires:	rpm-build >= 4.6
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	unzip
 BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	zip
@@ -48,23 +50,26 @@ artyleryjskich oraz obronie przeciwlotniczej.
 
 %package data
 Summary:	Warzone 2100 data files
+Summary(pl.UTF-8):	Pliki danych Warzone 2100
 Group:		X11/Applications/Games/Strategy
 BuildArch:	noarch
 
 %description data
 Warzone 2100 data files
 
+%description data -l pl.UTF-8
+Pliki danych Warzone 2100.
+
 %prep
 %setup -q -n %{name}
 %patch -P0 -p1
 
 %build
-mkdir -p build
-cd build
-%cmake ../ \
+%cmake -B build \
+	-DBUILD_SHARED_LIBS=OFF \
 	-DCMAKE_INSTALL_DOCDIR=%{_docdir}/%{name}-%{version}
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -86,7 +91,7 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__mv} $RPM_BUILD_ROOT{%{_iconsdir},%{_pixmapsdir}}/net.wz2100.warzone2100.png
 
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
