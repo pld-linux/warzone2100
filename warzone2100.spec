@@ -73,9 +73,16 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 %{__make} -C build install \
         DESTDIR=$RPM_BUILD_ROOT
 
-# unsupported
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ca_ES
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/uk_UA
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ar_SA,ar}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{bg_BG,bg}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ca_ES,ca}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{et_EE,et}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{fa_IR,fa}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{he_IL,he}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ja_JP,ja}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{my_MM,my}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{tt_RU,tt}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{uk_UA,uk}
 
 %{__mv} $RPM_BUILD_ROOT{%{_iconsdir},%{_pixmapsdir}}/net.wz2100.warzone2100.png
 
