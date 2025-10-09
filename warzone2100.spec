@@ -11,28 +11,39 @@ Source0:	https://downloads.sourceforge.net/warzone2100/releases/%{version}/%{nam
 Patch0:		x32.patch
 URL:		https://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
-BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel >= 1.2
-BuildRequires:	SDL_net-devel
+BuildRequires:	Vulkan-Headers
 BuildRequires:	cmake >= 3.16
-BuildRequires:	glew-devel
+BuildRequires:	curl-devel >= 8.16.0
+BuildRequires:	freetype-devel >= 2
+BuildRequires:	fribidi-devel
+BuildRequires:	gettext-tools >= 0.18
+BuildRequires:	harfbuzz-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	libmad-devel
 BuildRequires:	libpng-devel >= 1.2
+BuildRequires:	libsodium-devel >= 1.0.14
+BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	libtheora-devel >= 0.1
 BuildRequires:	libvorbis-devel >= 1.1
+BuildRequires:	libzip-devel
+BuildRequires:	miniupnpc-devel
+BuildRequires:	opus-devel
+# 7z
+BuildRequires:	p7zip
 BuildRequires:	physfs-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
-BuildRequires:	quesoglc-devel
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.605
-BuildRequires:	unzip
-BuildRequires:	xorg-lib-libXt-devel
-BuildRequires:	zip
+BuildRequires:	ruby-asciidoctor >= 1.5.3
+BuildRequires:	shaderc
+BuildRequires:	sqlite3-devel >= 3.14
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+BuildRequires:	zlib-devel
 Requires:	%{name}-data = %{version}-%{release}
 Requires:	fonts-TTF-DejaVu
-Requires:	gdb
+Requires:	libsodium >= 1.0.14
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
