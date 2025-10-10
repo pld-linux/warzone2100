@@ -3,11 +3,13 @@ Summary:	3D realtime strategy on a future Earth
 Summary(pl.UTF-8):	Gra RTS, której akcja toczy się w przyszłości
 Name:		warzone2100
 Version:	4.6.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications/Games/Strategy
 Source0:	https://downloads.sourceforge.net/warzone2100/releases/%{version}/%{name}_src.tar.xz
 # Source0-md5:	500e1a169f39454789bfc6bdb66b7582
+Source1:	https://downloads.sourceforge.net/project/warzone2100/warzone2100/Videos/high-quality-en/sequences.wz
+# Source1-md5:	9a1ee8e8e054a0ad5ef5efb63e361bcc
 Patch0:		x32.patch
 URL:		https://www.wz2100.net/
 BuildRequires:	OpenAL-devel >= 0.0.8-4
@@ -88,6 +90,8 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__make} -C build install \
         DESTDIR=$RPM_BUILD_ROOT
+
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{ar_SA,ar}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{bg_BG,bg}
